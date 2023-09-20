@@ -1,0 +1,13 @@
+@article{OLIVEIRA2023100253,
+title = {Beyond Fear and Anger: A Global Analysis of Emotional Response to Covid-19 News on Twitter},
+journal = {Online Social Networks and Media},
+volume = {36},
+pages = {100253},
+year = {2023},
+issn = {2468-6964},
+doi = {https://doi.org/10.1016/j.osnem.2023.100253},
+url = {https://www.sciencedirect.com/science/article/pii/S2468696423000125},
+author = {Francisco Bráulio Oliveira and Davoud Mougouei and Amanul Haque and Jaime Simão Sichman and Hoa Khanh Dam and Simon Evans and Aditya Ghose and Munindar P. Singh},
+keywords = {Covid-19, News, Emotion, Twitter, Media, Topic modeling, Deep learning},
+abstract = {The media has been used to disseminate public information amid the Covid-19 pandemic. However, Covid-19 news has triggered emotional responses in people that have impacted their mental well-being and led to news avoidance. To understand the emotional response to Covid-19 news, we studied user comments on news published on Twitter by 37 media outlets in 11 countries from January 2020 to December 2022. We employed a deep-learning-based model to identify the basic human emotions defined by Ekman in comments related to Covid-19 news. Additionally, we implemented Latent Dirichlet Allocation (LDA) to identify the news topics. Our analysis found that while nearly half of the user comments showed no significant emotions, negative emotions were more common. Anger was the most prevalent emotion, particularly in the media and comments regarding political responses and governmental actions in the United States. On the other hand, joy was mainly linked to media outlets from the Philippines and news about vaccination. Over time, anger consistently remained the most prevalent emotion, with fear being most prevalent at the start of the pandemic but decreasing over time, occasionally spiking with news on Covid-19 variants, cases, and deaths. Emotions also varied across media outlets, with Fox News being associated with the highest level of disgust, the second-highest level of anger, and the lowest level of fear. Sadness was highest at Citizen TV, SABC, and Nation Africa, all three African media outlets. Additionally, fear was most evident in the comments on news from The Times of India.}
+}
