@@ -9,7 +9,7 @@
         <title>Amanul Haque</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <link rel="stylesheet" href="styles/main.css" />
+        styles/main.css
 
         <!-- ============ MOBILE / RESPONSIVE OVERRIDES ============ -->
         <style>
@@ -35,29 +35,16 @@
             @media screen and (max-width: 980px) {
                 #nav-toggle { display: block; }
 
-                /* Sidebar becomes a compact top bar - stronger selector
-                   to override the template's fixed-position sidebar */
-                body #header {
+                /* Sidebar becomes a compact top bar */
+                #header {
                     display: block !important;
-                    position: relative !important;
-                    top: auto !important;
-                    left: auto !important;
+                    position: static !important;
                     width: 100% !important;
-                    max-width: 100% !important;
                     height: auto !important;
                     min-height: 0 !important;
                     padding: 1em 1em 0.75em !important;
-                    margin: 0 !important;
                     box-sizing: border-box;
                     text-align: center;
-                }
-
-                /* Make sure the main content area no longer reserves
-                   space for the old left sidebar */
-                body #wrapper {
-                    margin-left: 0 !important;
-                    padding-left: 0 !important;
-                    width: 100% !important;
                 }
 
                 /* Compact header row: avatar + name side-by-side */
@@ -147,6 +134,7 @@
                 #header.collapsed .image.avatar img { width: 40px !important; height: 40px !important; }
 
                 /* Main content layout */
+                #wrapper { padding-left: 0 !important; margin-left: 0 !important; }
                 #main { padding: 1.25em 1em !important; }
                 #main .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box; }
                 #main h3 { font-size: 1.1em; margin-top: 0.5em; }
@@ -199,7 +187,7 @@
 
             /* ---------- PHONE PORTRAIT ---------- */
             @media screen and (max-width: 480px) {
-                body #header { padding: 0.75em 0.75em 0.5em !important; }
+                #header { padding: 0.75em 0.75em 0.5em !important; }
                 #header .image.avatar img {
                     width: 52px !important;
                     height: 52px !important;
@@ -222,7 +210,7 @@
 
             /* ---------- VERY SHORT SCREENS (landscape phones) ---------- */
             @media screen and (max-height: 500px) and (max-width: 980px) {
-                body #header { padding: 0.4em 0.75em !important; }
+                #header { padding: 0.4em 0.75em !important; }
                 #header .image.avatar img { width: 40px !important; height: 40px !important; }
                 #header header p { display: none; }
             }
@@ -245,18 +233,18 @@
         <!-- Header / Sidebar -->
         <section id="header">
             <header>
-                <span class="image avatar"><img src="./images/Amanul.png" alt=""/></span>
+                <span class="image avatar">./images/Amanul.png</span>
                 <div class="title-block">
-                    <h1 id="logo"><a href="#">Amanul Haque</a></h1>
+                    <h1 id="logo">#</h1>
                     <p>AI Researcher<br/>PhD in Computer Science</p>
                 </div>
             </header>
             <nav id="nav">
                 <ul>
-                    <li><a href="#pubs">Publications</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="files/Amanul_Haque_Resume.pdf">Resume</a></li>
-                    <li><a href="#bio">About Me</a></li>
+                    <li>#pubs</li>
+                    <li>#projects</li>
+                    <li>/Amanul_Haque_Resume.pdf">Resume</a></li>
+                    <li>#bio</li>
                 </ul>
             </nav>
             <footer>
@@ -280,7 +268,7 @@
                         <p style="text-align: justify;">
                             I am an AI researcher with a strong focus on interpretability, socio-technical system design,
                             and challenges surrounding their scalable and responsible deployment. I completed my Ph.D. in Computer Science at NC State University under the advisement of Distinguished Professor <a href="https://www.csc2.ncsu.edu/faculty/mpsingh/" target="_blank">Munindar P. Singh</a>.
-                            My <a href="https://www.proquest.com/openview/dbba80de1675ed70fa21ac1cbde3060d/1?pq-origsite=gscholar&amp;cbl=18750&amp;diss=y" target="_blank">dissertation</a> combined language models and multiagent social simulations to analyze online news discourse and its influence on social media users.
+                            My ba80de1675ed70fa21ac1cbde3060d/1?pq-origsite=gscholar&amp;cbl=18750&amp;diss=y" target="_blank">dissertation</a> combined language models and multiagent social simulations to analyze online news discourse and its influence on social media users.
                         </p>
 
                         <p style="text-align: justify;">
@@ -298,59 +286,59 @@
                         <h3>Publications</h3>
                         <ul class="feature-icons">
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://www.tandfonline.com/doi/abs/10.1080/10447318.2025.2594137" target="_blank">Reasoning About Human Values in GitHub Issues: What Can a Large Language Model Reveal?</a></strong><br/>
+                                <strong>s/10.1080/10447318.2025.2594137" target="_blank">Reasoning About Human Values in GitHub Issues: What Can a Large Language Model Reveal?</a></strong><br/>
                                 Davoud Mougouei, <b>Amanul Haque</b>, Arif Nurwidyantoro, Elahe Mougouei, Mahdi Fahmideh, Mojtaba Shahin, Andi Dharmawan, Triyogatama Wahyu Widodo, and Hoa Khanh Dam<br/>
                                 <em>IJHCI</em>, 2026<br/>
-                                [<a href="#" target="_blank">pdf</a>] [<a href="#" target="_blank">bibtex</a>]
+                                [#] [#]
                             </li>
 
                             <li class="icon fa-file-text-o">
                                 <strong><a href="https://arxiv.org/abs/2404.02269" target="_blank">Extracting Norms from Contracts Via ChatGPT: Opportunities and Challenges</a></strong><br/>
                                 <b>Amanul Haque</b> and Munindar P. Singh.<br/>
                                 <em>COINE@AAMAS</em>, 2025<br/>
-                                [<a href="Papers/COINE2024/Extracting Norms from Contracts Via ChatGPT- Opportunities and Challenges.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/COINE2024/extracting_norms.bib" target="_blank">bibtex</a>]
+                                [racts Via ChatGPT- Opportunities and Challenges.pdf" target="_blank">pdf</a>]
+                                [ting_norms.bib" target="_blank">bibtex</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://ieeexplore.ieee.org/abstract/document/10379491" target="_blank">NewsSlant: Analyzing Political News and Its Influence Through a Moral Lens</a></strong><br/>
+                                <strong>ee.org/abstract/document/10379491" target="_blank">NewsSlant: Analyzing Political News and Its Influence Through a Moral Lens</a></strong><br/>
                                 <b>Amanul Haque</b> and Munindar P. Singh.<br/>
                                 <em>IEEE TCSS</em>, 2024<br/>
-                                [<a href="Papers/IEEE-TCSS/NewsSlant__Analyzing_Political_News_and_Its_Influence_Through_a_Moral_Lens.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/IEEE-TCSS/newsslant.bib" target="_blank">bibtex</a>]
+                                [Analyzing_Political_News_and_Its_Influence_Through_a_Moral_Lens.pdf" target="_blank">pdf</a>]
+                                [Papers/IEEE-TCSS/newsslant.bib]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://link.springer.com/article/10.1007/s00146-022-01626-5" target="_blank">Understanding Dynamics of Polarization via Multiagent Social Simulation</a></strong><br/>
+                                <strong>" target="_blank">Understanding Dynamics of Polarization via Multiagent Social Simulation</a></strong><br/>
                                 <b>Amanul Haque</b>, Nirav Ajmeri, and Munindar P. Singh.<br/>
                                 <em>AI and Society</em>, 2023<br/>
-                                [<a href="Papers/AIS2023/haque_et_al_2023_ai_and_soc_understanding_polarization_via_social_sim.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/AIS2023/understanding_pol.bib" target="_blank">bibtex</a>]
+                                [im.pdf" target="_blank">pdf</a>]
+                                [Papers/AIS2023/understanding_pol.bib]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://www.sciencedirect.com/science/article/pii/S2468696423000125" target="_blank">Beyond Fear and Anger: A Global Analysis of Emotional Response to Covid-19 News on Twitter Using Deep Learning</a></strong><br/>
+                                <strong>423000125" target="_blank">Beyond Fear and Anger: A Global Analysis of Emotional Response to Covid-19 News on Twitter Using Deep Learning</a></strong><br/>
                                 Francisco Bráulio Oliveira, Davoud Mougouei, <b>Amanul Haque</b>, Jaime Simão Sichman, Hoa Khanh Dam, Simon Evans, Aditya Ghose, and Munindar P. Singh.<br/>
                                 <em>Online Social Networks and Media</em>, 2023.<br/>
-                                [<a href="Papers/OSNM2023//Beyond Fear and Anger - A Global Analysis of Emotional Response to Covid-19 News on Twitter.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/OSNM2023/bibtex_beyond_fear_and_anger_Haque_et_al.bib" target="_blank">bibtex</a>]
+                                [-19 News on Twitter.pdf" target="_blank">pdf</a>]
+                                [Haque_et_al.bib" target="_blank">bibtex</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://aclanthology.org/2022.acl-short.13/" target="_blank">Pixie: Preference in Implicit and Explicit Comparisons</a></strong><br/>
+                                <strong>ology.org/2022.acl-short.13/" target="_blank">Pixie: Preference in Implicit and Explicit Comparisons</a></strong><br/>
                                 <b>Amanul Haque</b>, Vaibhav Garg, Hui Guo, and Munindar P. Singh.<br/>
                                 <em>Association of Computational Linguistics</em>, 2022.<br/>
-                                [<a href="Papers/ACL2022/Pixie_ACL_2022_short_paper_haque_et_al.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/ACL2022/pixie_haque_et_al.bib" target="_blank">bibtex</a>]
+                                [ACL2022/Pixie_ACL_2022_short_paper_haque_et_al.pdf" target="_blank">pdf</a>]
+                                [Papers/ACL2022/pixie_haque_et_al.bib" target="_blank">bibtex</a>]
                                 [<a href="https://github.com/ahaque2/Pixie" target="_blank">Github</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://ieeexplore.ieee.org/abstract/document/9709267" target="_blank">Investigating the Emotional Response to COVID-19 News on Twitter: A Topic Modeling and Emotion Classification Approach</a></strong><br/>
+                                <strong>267" target="_blank">Investigating the Emotional Response to COVID-19 News on Twitter: A Topic Modeling and Emotion Classification Approach</a></strong><br/>
                                 Francisco Bráulio Oliveira, <b>Amanul Haque</b>, Davoud Mougouei, Simon Evans, Jaime Simão Sichman, and Munindar P. Singh<br/>
                                 <em>IEEE Access</em>, 2022.<br/>
-                                [<a href="Papers/IEEE_access2022/Investigating the Emotional Response to COVID-19 News on Twitter - A Topic Modeling and Emotion Classification Approach.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/IEEE_access2022/ieee_access_2022.bib" target="_blank">bibtex</a>]
+                                [E_access2022/Investigating the Emotional Response to COVID-19 News on Twitter - A Topic Modeling and Emotion Classification Approach.pdf" target="_blank">pdf</a>]
+                                [Papers/IEEE_access2022/ieee_access_2022.bib]
                             </li>
                         </ul>
                     </div>
@@ -363,25 +351,25 @@
                         <div class="features">
 
                             <article>
-                                <a href="#" class="image"><img src="images/mech_interp.webp" alt=""/></a>
+                                #images/mech_interp.webp""/></a>
                                 <div class="inner">
-                                    <h4><a href="#" target="_blank">Model Interpretability and Steering</a></h4>
+                                    <h4>#</h4>
                                     <p>Exploring sparse autoencoders to interpret task-specific internal model representations and identify steering vectors.</p>
                                 </div>
                             </article>
 
                             <article>
-                                <a href="#" class="image"><img src="images/vector_subspace.webp" alt=""/></a>
+                                #
                                 <div class="inner">
-                                    <h4><a href="https://globalaffects.org/" target="_blank">Self-Supervised Representation Learning</a></h4>
+                                    <h4>ffects.org/" target="_blank">Self-Supervised Representation Learning</a></h4>
                                     <p>Exploring contrastive learning via concept vector subspace.</p>
                                 </div>
                             </article>
 
                             <article>
-                                <a href="#" class="image"><img src="images/PoliticalCorrectness.jpeg" alt=""/></a>
+                                #rectness.jpeg" alt=""/></a>
                                 <div class="inner">
-                                    <h4><a href="#" target="_blank">Multiagent Social Simulation</a></h4>
+                                    <h4>#</h4>
                                     <p>A simulation-based study investigating information diffusion in social networks and its influence on network topology.</p>
                                 </div>
                             </article>
@@ -400,7 +388,7 @@
                         </p>
 
                         <p style="text-align: justify;">
-                            I currently work as a Data Scientist at LexisNexis, working on <a href="https://www.lexisnexis.com/en-int/products/nexis-plus-ai" target="_blank">Nexis+AI's</a> Retrieval-Augmented Generation (RAG) system.
+                            I currently work as a Data Scientist at LexisNexis, working on -int/products/nexis-plus-ai" target="_blank">Nexis+AI's</a> Retrieval-Augmented Generation (RAG) system.
                             I previously served as a Member of the Technical Staff at Oracle for over two years, and completed several Machine Learning Engineer internships at leading organizations, including Lenovo, Seagate, and Coupang, where I contributed to a range of applied AI projects.
                             Additionally, I worked as a Research Fellow at the Laboratory of Analytic Sciences during the 2024 Summer Conference on Applied Data Science (SCADS).
                         </p>
@@ -410,7 +398,7 @@
                             As the President and head of events for the Indian Graduate Student Association (IGSA) at NC State University,
                             I worked with thousands of international students&mdash;helping them find their footing in a new country and fostering connections that provide support beyond the classroom.
                             I contributed to the CASE (Centering AI in Society and Ethics) initiative and
-                            co-hosted several of its early <a href="https://www.youtube.com/@ncsuaiinsociety9772" target="_blank">webinars</a> on AI in Society.
+                            co-hosted several of its early https://www.youtube.com/@ncsuaiinsociety9772 on AI in Society.
                             My contributions have been honored by NC State University with awards such as <em>Outstanding Teaching Assistant (2021)</em> and <em>Outstanding Student Leader (2023)</em>.
                         </p>
 
@@ -428,7 +416,7 @@
                 <div class="container">
                     <ul class="copyright">
                         <li>&copy; Amanul Haque. All rights reserved.</li>
-                        <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+                        <li>Design: ://html5up.net">HTML5 UP</a></li>
                     </ul>
                 </div>
             </section>
@@ -436,12 +424,12 @@
         </div>
 
         <!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollzer.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/skel.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+        assets/js/jquery.min.js
+        er.min.js"></script>
+        assets/js/jquery.scrolly.min.js
+        min.js"></script>
+        assets/js/util.js
+        assets/js/main.js
 
         <!-- Mobile nav toggle -->
         <script>
@@ -454,6 +442,7 @@
                     header.classList.toggle('collapsed');
                 });
 
+                // Auto-collapse after tapping a nav link on mobile
                 header.querySelectorAll('#nav a').forEach(function(a) {
                     a.addEventListener('click', function() {
                         if (window.innerWidth <= 980) header.classList.add('collapsed');
