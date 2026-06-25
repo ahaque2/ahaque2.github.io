@@ -11,16 +11,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <link rel="stylesheet" href="styles/main.css" />
 
-        <!-- ============ MOBILE / RESPONSIVE OVERRIDES ============ -->
+        <!-- ============================================================
+             MOBILE OVERRIDES
+             Desktop (>980px): original left sidebar layout untouched.
+             Mobile (<=980px): sidebar becomes a compact top bar.
+             ============================================================ -->
         <style>
-            /* Hamburger toggle - hidden on desktop */
+            /* Hamburger button - hidden by default, shown on mobile */
             #nav-toggle {
                 display: none;
                 position: fixed;
                 top: 10px;
                 right: 10px;
-                z-index: 10000;
-                background: rgba(31, 35, 40, 0.92);
+                z-index: 10001;
+                background: rgba(31, 35, 40, 0.95);
                 color: #fff;
                 border: none;
                 border-radius: 6px;
@@ -28,119 +32,195 @@
                 font-size: 18px;
                 line-height: 1;
                 cursor: pointer;
-                box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+                box-shadow: 0 2px 6px rgba(0,0,0,0.3);
             }
 
-            /* ---------- TABLET / SMALL LAPTOP ---------- */
+            /* ============ MOBILE / TABLET ============ */
             @media screen and (max-width: 980px) {
+
                 #nav-toggle { display: block; }
 
-                /* Sidebar becomes a compact top bar */
-                #header {
-                    display: block !important;
-                    position: static !important;
+                /* HARD-RESET the sidebar so the template CSS can't keep it
+                   pinned to the left as a narrow column. */
+                html body section#header {
+                    position: relative !important;
+                    top: auto !important;
+                    left: auto !important;
+                    right: auto !important;
+                    bottom: auto !important;
                     width: 100% !important;
+                    max-width: 100% !important;
+                    min-width: 0 !important;
                     height: auto !important;
+                    max-height: none !important;
                     min-height: 0 !important;
-                    padding: 1em 1em 0.75em !important;
-                    box-sizing: border-box;
+                    margin: 0 !important;
+                    padding: 1em 1em 0.85em 1em !important;
+                    box-sizing: border-box !important;
+                    display: block !important;
+                    float: none !important;
+                    overflow: visible !important;
+                    background: #1f2328;
+                    color: #fff;
                     text-align: center;
+                    z-index: 100;
                 }
 
-                /* Compact header row: avatar + name side-by-side */
+                /* Make sure wrapper / main don't keep a left margin
+                   reserved for the old fixed sidebar */
+                html body #wrapper {
+                    position: relative !important;
+                    margin-left: 0 !important;
+                    padding-left: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+
+                #main {
+                    padding: 1.25em 1em !important;
+                    margin: 0 !important;
+                    width: 100% !important;
+                    box-sizing: border-box !important;
+                }
+                #main .container {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    box-sizing: border-box !important;
+                }
+
+                /* ---- Header inner: avatar + name side-by-side ---- */
                 #header > header {
-                    display: flex;
+                    display: flex !important;
                     align-items: center;
                     justify-content: center;
                     flex-wrap: wrap;
                     gap: 0.75em;
-                    margin: 0 0 0.75em 0;
-                    padding: 0;
+                    margin: 0 0 0.65em 0 !important;
+                    padding: 0 !important;
+                    width: 100%;
                 }
 
                 #header .image.avatar {
-                    margin: 0 !important;
                     width: auto !important;
-                    display: inline-block;
+                    height: auto !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    display: inline-block !important;
                 }
                 #header .image.avatar img {
-                    width: 64px !important;
-                    height: 64px !important;
-                    max-width: 64px !important;
-                    border-radius: 50%;
+                    width: 60px !important;
+                    height: 60px !important;
+                    max-width: 60px !important;
+                    min-width: 0 !important;
+                    border-radius: 50% !important;
                     object-fit: cover;
                     display: block;
                 }
 
-                #header header #logo {
-                    font-size: 1.2em !important;
+                #header header .title-block { text-align: left; }
+                #header #logo {
+                    font-size: 1.15em !important;
                     margin: 0 !important;
-                    line-height: 1.1;
+                    padding: 0 !important;
+                    line-height: 1.15;
+                    color: #fff !important;
                 }
-                #header header #logo a { color: inherit; }
+                #header #logo a { color: #fff !important; }
                 #header header p {
-                    font-size: 0.8em !important;
+                    font-size: 0.78em !important;
                     margin: 0.2em 0 0 0 !important;
+                    padding: 0 !important;
                     line-height: 1.25;
-                    opacity: 0.8;
-                }
-                #header header > div.title-block {
-                    text-align: left;
+                    opacity: 0.85;
+                    color: #ddd !important;
                 }
 
-                /* Nav as compact wrap of pill buttons */
-                #header #nav { display: block; margin: 0; }
-                #header #nav ul {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0.5em 0;
-                    display: flex;
+                /* ---- Nav: wrap pill buttons across full width ---- */
+                #header nav#nav {
+                    display: block !important;
+                    width: 100% !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                }
+                #header nav#nav ul {
+                    list-style: none !important;
+                    padding: 0 !important;
+                    margin: 0.4em 0 0.5em 0 !important;
+                    display: flex !important;
                     flex-wrap: wrap;
                     justify-content: center;
                     gap: 0.4em;
+                    width: 100%;
                 }
-                #header #nav ul li { margin: 0; padding: 0; border: 0; }
-                #header #nav ul li a {
-                    display: inline-block;
-                    padding: 0.45em 0.85em;
-                    background: rgba(255,255,255,0.08);
+                #header nav#nav ul li {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    border: 0 !important;
+                    display: inline-block !important;
+                }
+                #header nav#nav ul li a {
+                    display: inline-block !important;
+                    padding: 0.5em 0.95em !important;
+                    background: rgba(255,255,255,0.10);
                     color: #fff !important;
                     border-radius: 999px;
                     text-decoration: none;
-                    font-size: 0.78em;
-                    letter-spacing: 0.02em;
-                    border: 1px solid rgba(255,255,255,0.12);
+                    font-size: 0.8em;
+                    border: 1px solid rgba(255,255,255,0.18);
+                    line-height: 1;
                 }
-                #header #nav ul li a:hover,
-                #header #nav ul li a:active { background: rgba(255,255,255,0.18); }
+                #header nav#nav ul li a:hover,
+                #header nav#nav ul li a:active {
+                    background: rgba(255,255,255,0.22);
+                }
 
-                /* Social icons - compact row */
-                #header > footer { margin: 0.5em 0 0 0; padding: 0; }
-                #header footer ul.icons {
-                    display: flex;
+                /* ---- Social icons row ---- */
+                #header > footer {
+                    margin: 0.4em 0 0 0 !important;
+                    padding: 0 !important;
+                    width: 100%;
+                }
+                #header > footer ul.icons {
+                    display: flex !important;
                     justify-content: center;
-                    gap: 0.6em;
-                    padding: 0;
-                    margin: 0;
+                    gap: 0.8em;
+                    padding: 0 !important;
+                    margin: 0 !important;
                 }
-                #header footer ul.icons li a { font-size: 1em; }
+                #header > footer ul.icons li {
+                    padding: 0 !important;
+                    margin: 0 !important;
+                }
+                #header > footer ul.icons li a {
+                    font-size: 1.1em;
+                    color: #fff !important;
+                }
 
-                /* Collapsed state */
-                #header.collapsed > header > div.title-block,
-                #header.collapsed #nav,
-                #header.collapsed > footer { display: none; }
-                #header.collapsed { padding: 0.5em 1em !important; }
-                #header.collapsed > header { justify-content: flex-start; margin: 0; }
-                #header.collapsed .image.avatar img { width: 40px !important; height: 40px !important; }
+                /* ---- Collapsed (after hamburger tap) ---- */
+                #header.collapsed {
+                    padding: 0.45em 1em !important;
+                }
+                #header.collapsed > header {
+                    justify-content: flex-start;
+                    margin: 0 !important;
+                }
+                #header.collapsed .image.avatar img {
+                    width: 38px !important;
+                    height: 38px !important;
+                }
+                #header.collapsed #logo { font-size: 0.95em !important; }
+                #header.collapsed header p,
+                #header.collapsed nav#nav,
+                #header.collapsed > footer { display: none !important; }
 
-                /* Main content layout */
-                #wrapper { padding-left: 0 !important; margin-left: 0 !important; }
-                #main { padding: 1.25em 1em !important; }
-                #main .container { padding: 0 !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box; }
+                /* ---- Content tuning ---- */
                 #main h3 { font-size: 1.1em; margin-top: 0.5em; }
                 #main p { font-size: 0.92em; line-height: 1.55; }
 
-                /* Publications list - tighter */
                 ul.feature-icons li {
                     font-size: 0.88em;
                     padding-left: 2em !important;
@@ -148,14 +228,13 @@
                     line-height: 1.5;
                 }
 
-                /* Projects: stack vertically with smaller images */
                 .features {
                     display: flex !important;
                     flex-direction: column;
                     gap: 1em;
                 }
                 .features article {
-                    display: flex;
+                    display: flex !important;
                     flex-direction: row;
                     gap: 0.75em;
                     padding: 0.75em !important;
@@ -173,44 +252,34 @@
                     object-fit: cover;
                     border-radius: 6px;
                 }
-                .features article .inner {
-                    flex: 1;
-                    padding: 0 !important;
-                }
+                .features article .inner { flex: 1; padding: 0 !important; }
                 .features article h4 { font-size: 0.95em; margin: 0 0 0.3em 0; }
                 .features article p { font-size: 0.82em; margin: 0; }
 
-                /* Footer */
                 #footer { padding: 1.5em 1em !important; }
                 #footer .copyright { font-size: 0.75em; text-align: center; }
             }
 
-            /* ---------- PHONE PORTRAIT ---------- */
+            /* ============ PHONE PORTRAIT ============ */
             @media screen and (max-width: 480px) {
-                #header { padding: 0.75em 0.75em 0.5em !important; }
-                #header .image.avatar img {
-                    width: 52px !important;
-                    height: 52px !important;
-                }
-                #header header #logo { font-size: 1.05em !important; }
+                html body section#header { padding: 0.85em 0.85em 0.7em !important; }
+                #header .image.avatar img { width: 52px !important; height: 52px !important; }
+                #header #logo { font-size: 1.05em !important; }
                 #header header p { font-size: 0.72em !important; }
-                #header #nav ul li a { font-size: 0.72em; padding: 0.4em 0.75em; }
+                #header nav#nav ul li a { font-size: 0.74em; padding: 0.45em 0.8em !important; }
 
                 #main { padding: 1em 0.85em !important; }
                 #main h3 { font-size: 1em; }
-                #main p, ul.feature-icons li { font-size: 0.85em; }
+                #main p, ul.feature-icons li { font-size: 0.86em; }
 
                 .features article { flex-direction: column; }
                 .features article .image { flex: 0 0 auto; width: 100%; }
-                .features article .image img {
-                    width: 100% !important;
-                    height: 140px !important;
-                }
+                .features article .image img { width: 100% !important; height: 140px !important; }
             }
 
-            /* ---------- VERY SHORT SCREENS (landscape phones) ---------- */
+            /* ============ LANDSCAPE PHONES (short height) ============ */
             @media screen and (max-height: 500px) and (max-width: 980px) {
-                #header { padding: 0.4em 0.75em !important; }
+                html body section#header { padding: 0.4em 0.85em !important; }
                 #header .image.avatar img { width: 40px !important; height: 40px !important; }
                 #header header p { display: none; }
             }
@@ -227,7 +296,7 @@
     </head>
     <body>
 
-        <!-- Mobile-only hamburger -->
+        <!-- Mobile-only hamburger toggle -->
         <button id="nav-toggle" aria-label="Toggle menu">&#9776;</button>
 
         <!-- Header / Sidebar -->
@@ -262,7 +331,7 @@
             <!-- Main -->
             <div id="main">
 
-                <!-- Intro / Research Interests -->
+                <!-- Research Interests -->
                 <section id="research_interests">
                     <div class="container">
                         <p style="text-align: justify;">
@@ -296,49 +365,49 @@
                                 <strong><a href="https://arxiv.org/abs/2404.02269" target="_blank">Extracting Norms from Contracts Via ChatGPT: Opportunities and Challenges</a></strong><br/>
                                 <b>Amanul Haque</b> and Munindar P. Singh.<br/>
                                 <em>COINE@AAMAS</em>, 2025<br/>
-                                [<a href="Papers/COINE2024/Extracting Norms from Contracts Via ChatGPT- Opportunities and Challenges.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/COINE2024/extracting_norms.bib" target="_blank">bibtex</a>]
+                                [Papers/COINE2024/Extracting Norms from Contracts Via ChatGPT- Opportunities and Challenges.pdf" target="_blank">pdf</a>]
+                                [/COINE2024/extracting_norms.bib" target="_blank">bibtex</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://ieeexplore.ieee.org/abstract/document/10379491" target="_blank">NewsSlant: Analyzing Political News and Its Influence Through a Moral Lens</a></strong><br/>
+                                <strong>nt/10379491" target="_blank">NewsSlant: Analyzing Political News and Its Influence Through a Moral Lens</a></strong><br/>
                                 <b>Amanul Haque</b> and Munindar P. Singh.<br/>
                                 <em>IEEE TCSS</em>, 2024<br/>
-                                [<a href="Papers/IEEE-TCSS/NewsSlant__Analyzing_Political_News_and_Its_Influence_Through_a_Moral_Lens.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/IEEE-TCSS/newsslant.bib" target="_blank">bibtex</a>]
+                                [Papers/IEEE-TCSS/NewsSlant__Analyzing_Political_News_and_Its_Influence_Through_a_Moral_Lens.pdf]
+                                [/IEEE-TCSS/newsslant.bib" target="_blank">bibtex</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://link.springer.com/article/10.1007/s00146-022-01626-5" target="_blank">Understanding Dynamics of Polarization via Multiagent Social Simulation</a></strong><br/>
+                                <strong>0146-022-01626-5" target="_blank">Understanding Dynamics of Polarization via Multiagent Social Simulation</a></strong><br/>
                                 <b>Amanul Haque</b>, Nirav Ajmeri, and Munindar P. Singh.<br/>
                                 <em>AI and Society</em>, 2023<br/>
-                                [<a href="Papers/AIS2023/haque_et_al_2023_ai_and_soc_understanding_polarization_via_social_sim.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/AIS2023/understanding_pol.bib" target="_blank">bibtex</a>]
+                                [/AIS2023/haque_et_al_2023_ai_and_soc_understanding_polarization_via_social_sim.pdf" target="_blank">pdf</a>]
+                                [Papers/AIS2023/understanding_pol.bib" target="_blank">bibtex</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://www.sciencedirect.com/science/article/pii/S2468696423000125" target="_blank">Beyond Fear and Anger: A Global Analysis of Emotional Response to Covid-19 News on Twitter Using Deep Learning</a></strong><br/>
+                                <strong>e/pii/S2468696423000125" target="_blank">Beyond Fear and Anger: A Global Analysis of Emotional Response to Covid-19 News on Twitter Using Deep Learning</a></strong><br/>
                                 Francisco Bráulio Oliveira, Davoud Mougouei, <b>Amanul Haque</b>, Jaime Simão Sichman, Hoa Khanh Dam, Simon Evans, Aditya Ghose, and Munindar P. Singh.<br/>
                                 <em>Online Social Networks and Media</em>, 2023.<br/>
-                                [<a href="Papers/OSNM2023/Beyond Fear and Anger - A Global Analysis of Emotional Response to Covid-19 News on Twitter.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/OSNM2023/bibtex_beyond_fear_and_anger_Haque_et_al.bib" target="_blank">bibtex</a>]
+                                [Papers/OSNM2023//Beyond Fear and Anger - A Global Analysis of Emotional Response to Covid-19 News on Twitter.pdf]
+                                [Papers/OSNM2023/bibtex_beyond_fear_and_anger_Haque_et_al.bib" target="_blank">bibtex</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
                                 <strong><a href="https://aclanthology.org/2022.acl-short.13/" target="_blank">Pixie: Preference in Implicit and Explicit Comparisons</a></strong><br/>
                                 <b>Amanul Haque</b>, Vaibhav Garg, Hui Guo, and Munindar P. Singh.<br/>
                                 <em>Association of Computational Linguistics</em>, 2022.<br/>
-                                [<a href="Papers/ACL2022/Pixie_ACL_2022_short_paper_haque_et_al.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/ACL2022/pixie_haque_et_al.bib" target="_blank">bibtex</a>]
+                                [Papers/ACL2022/Pixie_ACL_2022_short_paper_haque_et_al.pdf" target="_blank">pdf</a>]
+                                [" target="_blank">bibtex</a>]
                                 [<a href="https://github.com/ahaque2/Pixie" target="_blank">Github</a>]
                             </li>
 
                             <li class="icon fa-file-text-o">
-                                <strong><a href="https://ieeexplore.ieee.org/abstract/document/9709267" target="_blank">Investigating the Emotional Response to COVID-19 News on Twitter: A Topic Modeling and Emotion Classification Approach</a></strong><br/>
+                                <strong>document/9709267" target="_blank">Investigating the Emotional Response to COVID-19 News on Twitter: A Topic Modeling and Emotion Classification Approach</a></strong><br/>
                                 Francisco Bráulio Oliveira, <b>Amanul Haque</b>, Davoud Mougouei, Simon Evans, Jaime Simão Sichman, and Munindar P. Singh<br/>
                                 <em>IEEE Access</em>, 2022.<br/>
-                                [<a href="Papers/IEEE_access2022/Investigating the Emotional Response to COVID-19 News on Twitter - A Topic Modeling and Emotion Classification Approach.pdf" target="_blank">pdf</a>]
-                                [<a href="Papers/IEEE_access2022/ieee_access_2022.bib" target="_blank">bibtex</a>]
+                                [ng the Emotional Response to COVID-19 News on Twitter - A Topic Modeling and Emotion Classification Approach.pdf" target="_blank">pdf</a>]
+                                [s2022/ieee_access_2022.bib" target="_blank">bibtex</a>]
                             </li>
                         </ul>
                     </div>
@@ -351,25 +420,25 @@
                         <div class="features">
 
                             <article>
-                                <a href="#" class="image"><img src="images/mech_interp.webp" alt=""/></a>
+                                #"images/mech_interp.webp" alt=""/></a>
                                 <div class="inner">
-                                    <h4><a href="#" target="_blank">Model Interpretability and Steering</a></h4>
+                                    <h4>#"_blank">Model Interpretability and Steering</a></h4>
                                     <p>Exploring sparse autoencoders to interpret task-specific internal model representations and identify steering vectors.</p>
                                 </div>
                             </article>
 
                             <article>
-                                <a href="#" class="image"><img src="images/vector_subspace.webp" alt=""/></a>
+                                #images/vector_subspace.webp" alt=""/></a>
                                 <div class="inner">
-                                    <h4><a href="https://globalaffects.org/" target="_blank">Self-Supervised Representation Learning</a></h4>
+                                    <h4>" target="_blank">Self-Supervised Representation Learning</a></h4>
                                     <p>Exploring contrastive learning via concept vector subspace.</p>
                                 </div>
                             </article>
 
                             <article>
-                                <a href="#" class="image"><img src="images/PoliticalCorrectness.jpeg" alt=""/></a>
+                                #" class="image"><img src="images/PoliticalCorrectness.jpeg" alt=""/></a>
                                 <div class="inner">
-                                    <h4><a href="#" target="_blank">Multiagent Social Simulation</a></h4>
+                                    <h4>#"_blank">Multiagent Social Simulation</a></h4>
                                     <p>A simulation-based study investigating information diffusion in social networks and its influence on network topology.</p>
                                 </div>
                             </article>
@@ -378,7 +447,7 @@
                     </div>
                 </section>
 
-                <!-- About / Bio -->
+                <!-- About Me -->
                 <section id="bio">
                     <div class="container">
                         <h3>About Me</h3>
@@ -394,8 +463,7 @@
                         </p>
 
                         <p style="text-align: justify;">
-                            I have been part of building communities as much as ideas.
-                            As the President and head of events for the Indian Graduate Student Association (IGSA) at NC State University,
+                            I have been part of building communities as much as ideas. As the President and head of events for the Indian Graduate Student Association (IGSA) at NC State University,
                             I worked with thousands of international students&mdash;helping them find their footing in a new country and fostering connections that provide support beyond the classroom.
                             I contributed to the CASE (Centering AI in Society and Ethics) initiative and
                             co-hosted several of its early <a href="https://www.youtube.com/@ncsuaiinsociety9772" target="_blank">webinars</a> on AI in Society.
@@ -442,7 +510,6 @@
                     header.classList.toggle('collapsed');
                 });
 
-                // Auto-collapse after tapping a nav link on mobile
                 header.querySelectorAll('#nav a').forEach(function(a) {
                     a.addEventListener('click', function() {
                         if (window.innerWidth <= 980) header.classList.add('collapsed');
